@@ -1,12 +1,13 @@
-from django.shortcuts import render
-from .models import Member
-from .serlilizers import MemberSerilizers
-from rest_framework.viewsets import GenericViewSet
-from rest_framework.mixins import  RetrieveModelMixin,ListModelMixin
-# Create your views here.
+from rest_framework import viewsets
+from rest_framework.mixins import ListModelMixin, RetrieveModelMixin
+from .models import Member,Position
+from .serlilizers import MemberSerializer,PositionSerializer
 
-
-
-class MemererViewSet(ListModelMixin,RetrieveModelMixin,GenericViewSet):
+class MemberViewSet(ListModelMixin, RetrieveModelMixin, viewsets.GenericViewSet):
     queryset = Member.objects.all()
-    serializer_class = MemberSerilizers
+    serializer_class = MemberSerializer
+
+
+class PositionViewSet(viewsets.ModelViewSet):
+    queryset = Position.objects.all()
+    serializer_class = PositionSerializer
