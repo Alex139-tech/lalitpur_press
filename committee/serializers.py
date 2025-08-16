@@ -8,7 +8,7 @@ class PositionSerializer(serializers.ModelSerializer):
 
 
 class MemberSerializer(serializers.ModelSerializer):
-    position = PositionSerializer(read_only=True)  
+    position = PositionSerializer(read_only=True)
     position_id = serializers.PrimaryKeyRelatedField(
         queryset=Position.objects.all(), source='position', write_only=True
     ) 

@@ -1,0 +1,13 @@
+
+
+migrations/
+__pycache__
+__pycache__/
+
+
+*.pyc
+
+*.sqlite3
+*.sqlite
+
+venv

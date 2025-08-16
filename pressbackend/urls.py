@@ -5,7 +5,7 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from contact.views import ContactViewSet,ReportViewSet
 from news.views import NewsViewSet,NoticeViewSet
-from members.views import MemberViewSet,PositionViewSet
+from committee.views import MemberViewSet,PositionViewSet
 
 
 router = DefaultRouter()
