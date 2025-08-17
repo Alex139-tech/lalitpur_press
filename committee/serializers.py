@@ -9,9 +9,9 @@ class PositionSerializer(serializers.ModelSerializer):
 
 class MemberSerializer(serializers.ModelSerializer):
     position = PositionSerializer(read_only=True)
-    position_id = serializers.PrimaryKeyRelatedField(
-        queryset=Position.objects.all(), source='position', write_only=True
-    ) 
+    # position_id = serializers.PrimaryKeyRelatedField(
+    #     queryset=Position.objects.all(), source='position', write_only=True
+    # ) 
 
     class Meta:
         model = Member
@@ -25,6 +25,6 @@ class MemberSerializer(serializers.ModelSerializer):
             'quotation',
             'member_type',
             'position',
-            'position_id',
+            # 'position_id',
             'joined_date',
         ]

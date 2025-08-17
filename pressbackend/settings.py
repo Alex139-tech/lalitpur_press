@@ -43,6 +43,8 @@ INSTALLED_APPS = [
     'news',
     'committee',
     'contact',
+    'gallery',
+    'misc',
 
 ]
 

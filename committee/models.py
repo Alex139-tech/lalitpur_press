@@ -11,21 +11,23 @@ class Member(models.Model):
     name = models.CharField(max_length=255)
     bio = models.TextField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True) 
-    contact_number = models.CharField(max_length=15, blank=True, null=True)
+    contact_number = models.CharField(unique=True,max_length=15)
     quotation = models.TextField(blank=True, null=True)  
 
-    POSITION_TYPE_CHOICES = [
+    MEMBER_TYPE_CHOICES = [
         ('Executive', 'Executive'),
         ('Regular', 'Regular'),
     ]
     member_type = models.CharField(
         max_length=10,
-        choices=POSITION_TYPE_CHOICES,
+        choices=MEMBER_TYPE_CHOICES,
         default='Regular'
     )
 
     position = models.ForeignKey(Position, on_delete=models.SET_NULL, null=True, blank=True) 
     joined_date = models.DateTimeField(auto_now_add=True)
-
+    status_is_active = models.BooleanField(default=False)
+    memeber_id = models.CharField(max_length=20)
+    
     def __str__(self):
         return self.name
